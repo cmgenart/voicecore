@@ -44,8 +44,5 @@ npm run dev
 
 SentienceTool will depend on `src/` once the module is extracted. Until then, the test app under `test-app/` is the source of truth for voice behaviour.
 
-See `test-app/docs/design.md` and `test-app/docs/integration-plan.md` for architecture and SentienceTool wiring plans.
-
-## Git
-
-No repository initialized here yet — folder layout only.
+See **`docs/NEXT-PHASE.md`** for the v0.2 roadmap (Electron-first, then module extraction).  
+See `test-app/docs/design.md` (v0.1 behaviour) and `test-app/docs/integration-plan.md` (SentienceTool wiring).
