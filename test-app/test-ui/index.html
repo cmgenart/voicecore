@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VoiceCore Test</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <main class="main-col">
+      <header class="page-header">
+        <div>
+          <h1>VoiceCore</h1>
+          <p class="sub">xAI Realtime speech I/O test harness</p>
+        </div>
+      </header>
+
+      <section class="panel controls compact-controls">
+        <label class="field-api">
+          xAI API key
+          <input type="password" id="apiKey" autocomplete="off" placeholder="xai-..." />
+        </label>
+        <label class="field-voice">
+          Voice
+          <select id="voice">
+            <option value="eve">eve</option>
+            <option value="ara">ara</option>
+            <option value="rex">rex</option>
+            <option value="sal">sal</option>
+            <option value="leo">leo</option>
+          </select>
+        </label>
+        <div class="field-actions btn-row">
+          <button type="button" id="btnConnect" class="primary">Connect</button>
+          <button type="button" id="btnDisconnect" disabled>Disconnect</button>
+        </div>
+        <label class="field-text">
+          Text
+          <div class="text-row">
+            <input type="text" id="textInput" placeholder="Type and send…" disabled />
+            <button type="button" id="btnSend" disabled>Send</button>
+          </div>
+        </label>
+      </section>
+
+      <section class="panel waveform-panel" id="micWaveformHost"></section>
+
+      <div class="mid-row">
+        <button type="button" id="holdPad" class="hold-pad" disabled title="Hold while pausing mid-sentence">
+          <span class="hold-title">Hold to think</span>
+        </button>
+        <section class="panel status-grid compact-status">
+          <div class="stat">
+            <span class="label">State</span>
+            <span id="stateBadge" class="badge idle">idle</span>
+          </div>
+          <div class="stat">
+            <span class="label">Hold</span>
+            <span id="holdStatus">off</span>
+          </div>
+          <div class="stat">
+            <span class="label">Echo</span>
+            <span id="echoMode">—</span>
+          </div>
+          <div class="stat">
+            <span class="label">Gate</span>
+            <span id="micGate">off</span>
+          </div>
+          <div class="stat">
+            <span class="label">Thresh</span>
+            <span id="gateThreshold" class="mono">—</span>
+          </div>
+          <div class="stat stat-meter">
+            <span class="label">Mic</span>
+            <meter id="micMeter" min="0" max="1" value="0"></meter>
+          </div>
+          <div class="stat stat-meter">
+            <span class="label">Out</span>
+            <meter id="volMeter" min="0" max="1" value="0"></meter>
+          </div>
+        </section>
+      </div>
+
+      <div class="bottom-panels">
+        <section class="panel panel-grow">
+          <h2>Transcript</h2>
+          <div id="transcript" class="transcript"></div>
+        </section>
+        <section class="panel panel-grow">
+          <h2>Events</h2>
+          <pre id="eventLog" class="log"></pre>
+        </section>
+      </div>
+    </main>
+
+    <div id="tuningMount"></div>
+  </div>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "@livekit/krisp-noise-filter": "/npm/@livekit/krisp-noise-filter/dist/index.js",
+      "livekit-client": "/npm/livekit-client/dist/livekit-client.esm.mjs"
+    }
+  }
+  </script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "name": "voicecore",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Focused real-time voice I/O for xAI Realtime + Electron",
+  "type": "module",
+  "main": "electron/main.js",
+  "module": "./index.js",
+  "scripts": {
+    "dev": "node scripts/dev-server.js",
+    "start": "electron .",
+    "open": "node scripts/open-test-ui.js"
+  },
+  "dependencies": {
+    "@livekit/krisp-noise-filter": "^0.4.3",
+    "livekit-client": "^2.19.0"
+  },
+  "optionalDependencies": {
+    "electron": "^42.2.0"
+  }
+}
